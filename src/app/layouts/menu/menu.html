@@ -1,1 +1,43 @@
-<p>menu works!</p>
+<div class="sidebar bg-dark" [class.mini]="!isExpanded()">
+  <div class="brand p-3 border-bottom border-secondary text-center">
+    <h4 *ngIf="isExpanded()" class="m-0 text-white">UDGAMA</h4>
+    <mat-icon *ngIf="!isExpanded()" class="text-white">rocket_launch</mat-icon>
+  </div>
+
+  <mat-nav-list>
+    <a mat-list-item routerLink="/dashboard" routerLinkActive="active" title="Dashboard">
+      <mat-icon matListItemIcon>dashboard</mat-icon>
+      <span *ngIf="isExpanded()" class="menu-text">Dashboard</span>
+    </a>
+
+    <a mat-list-item routerLink="/kanban" routerLinkActive="active" title="Kanban">
+      <mat-icon matListItemIcon>art_track</mat-icon>
+      <span *ngIf="isExpanded()" class="menu-text">Kanban</span>
+    </a>
+
+    <a mat-list-item routerLink="/notes" routerLinkActive="active" title="Kanban">
+      <mat-icon matListItemIcon>notes</mat-icon>
+      <span *ngIf="isExpanded()" class="menu-text">Notes</span>
+    </a>
+
+    <a mat-list-item routerLink="/todo" routerLinkActive="active" title="Kanban">
+      <mat-icon matListItemIcon>list_alt</mat-icon>
+      <span *ngIf="isExpanded()" class="menu-text">Todo</span>
+    </a>
+
+    <a mat-list-item routerLink="/drive" routerLinkActive="active" title="Kanban">
+      <mat-icon matListItemIcon>filter_drama</mat-icon>
+      <span *ngIf="isExpanded()" class="menu-text">Drive</span>
+    </a>    
+    
+    <a mat-list-item routerLink="/users" routerLinkActive="active" title="Users">
+      <mat-icon matListItemIcon>people</mat-icon>
+      <span *ngIf="isExpanded()" class="menu-text">Users</span>
+    </a>
+    
+    <a mat-list-item routerLink="/settings" routerLinkActive="active" title="Settings">
+      <mat-icon matListItemIcon>settings</mat-icon>
+      <span *ngIf="isExpanded()" class="menu-text">Settings</span>
+    </a>
+  </mat-nav-list>
+</div>

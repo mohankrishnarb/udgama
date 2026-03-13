@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-pages',
-  imports: [],
+  imports: [FormsModule,ReactiveFormsModule],
   templateUrl: './pages.html',
   styleUrl: './pages.scss',
 })
