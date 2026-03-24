@@ -5,31 +5,64 @@
       <p class="text-muted">Join the Udgama Business Suite</p>
     </div>
 
-    <mat-form-field class="w-100 mb-2" appearance="outline">
-      <mat-label>Full Name</mat-label>
-      <mat-icon matIconPrefix>person</mat-icon>
-      <input matInput placeholder="Ex. John Doe">
-    </mat-form-field>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 
-    <mat-form-field class="w-100 mb-2" appearance="outline">
-      <mat-label>Email Address</mat-label>
-      <mat-icon matIconPrefix>mail</mat-icon>
-      <input matInput type="email" placeholder="john@udgama.com">
-    </mat-form-field>
+      <mat-form-field class="w-100 mb-2" appearance="outline">
+        <mat-label>Full Name</mat-label>
+        <mat-icon matIconPrefix>person</mat-icon>
+        <input matInput formControlName="fullName" placeholder="Ex. John Doe">
+        @if (signupForm.get('fullName')?.invalid && (signupForm.get('fullName')?.touched ||
+        signupForm.get('fullName')?.dirty)) {
+        <mat-error>Name is required (min 2 chars)</mat-error>
+        }
+      </mat-form-field>
 
-    <mat-form-field class="w-100 mb-4" appearance="outline">
-      <mat-label>Password</mat-label>
-      <mat-icon matIconPrefix>lock</mat-icon>
-      <input matInput type="password" placeholder="Min. 8 characters">
-    </mat-form-field>
+      <mat-form-field class="w-100 mb-2" appearance="outline">
+        <mat-label>Email Address</mat-label>
+        <mat-icon matIconPrefix>mail</mat-icon>
+        <input matInput formControlName="email" type="email" placeholder="john@udgama.com">
+        @if (signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)) {
+        <mat-error>Please enter a valid email</mat-error>
+        }
+      </mat-form-field>
 
-    <button mat-raised-button class="w-100 mb-3 signup-btn" routerLink="/dashboard">
-      Sign Up
-    </button>
+      <mat-form-field class="w-100 mb-2" appearance="outline">
+        <mat-label>Password</mat-label>
+        <mat-icon matIconPrefix>lock</mat-icon>
+        <input matInput formControlName="password" type="password" placeholder="Min. 8 characters">
+        @if (signupForm.get('password')?.invalid && (signupForm.get('password')?.touched ||
+        signupForm.get('password')?.dirty)) {
+        <mat-error>Password must be at least 8 characters</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="w-100 mb-4" appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <mat-icon matIconPrefix>lock_reset</mat-icon>
+
+        <input matInput formControlName="confirmPassword" type="password" placeholder="Repeat password">
+
+        @if (signupForm.get('confirmPassword')?.invalid && (signupForm.get('confirmPassword')?.touched ||
+        signupForm.get('confirmPassword')?.dirty)) {
+        <mat-error>
+          @if (signupForm.get('confirmPassword')?.hasError('required')) {
+          Please confirm your password
+          } @else if (signupForm.get('confirmPassword')?.hasError('passwordMismatch')) {
+          Passwords do not match
+          }
+        </mat-error>
+        }
+      </mat-form-field>
+
+      <button mat-raised-button class="w-100 mb-3 signup-btn" (click)="signup()">
+        Sign Up
+      </button>
+    </form>
+
 
     <div class="text-center small">
       <span class="text-muted">Already have an account?</span>
-      <a routerLink="/login" class="ms-2 sign-in-link">Sign In</a>
+      <a routerLink="/" class="ms-2 sign-in-link">Sign In</a>
     </div>
   </div>
 </div>

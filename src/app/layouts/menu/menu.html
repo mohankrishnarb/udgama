@@ -15,20 +15,25 @@
       <span *ngIf="isExpanded()" class="menu-text">Kanban</span>
     </a>
 
-    <a mat-list-item routerLink="/notes" routerLinkActive="active" title="Kanban">
+    <a mat-list-item routerLink="/notes" routerLinkActive="active" title="Notes">
       <mat-icon matListItemIcon>notes</mat-icon>
       <span *ngIf="isExpanded()" class="menu-text">Notes</span>
     </a>
 
-    <a mat-list-item routerLink="/todo" routerLinkActive="active" title="Kanban">
+    <a mat-list-item routerLink="/todo" routerLinkActive="active" title="Todo">
       <mat-icon matListItemIcon>list_alt</mat-icon>
       <span *ngIf="isExpanded()" class="menu-text">Todo</span>
     </a>
 
-    <a mat-list-item routerLink="/drive" routerLinkActive="active" title="Kanban">
+    <a mat-list-item routerLink="/drive" routerLinkActive="active" title="Drive">
       <mat-icon matListItemIcon>filter_drama</mat-icon>
       <span *ngIf="isExpanded()" class="menu-text">Drive</span>
-    </a>    
+    </a>
+    
+    <a mat-list-item routerLink="/calendar" routerLinkActive="active" title="Calendar">
+      <mat-icon matListItemIcon>insert_invitation</mat-icon>
+      <span *ngIf="isExpanded()" class="menu-text">Calendar</span>
+    </a>
     
     <a mat-list-item routerLink="/users" routerLinkActive="active" title="Users">
       <mat-icon matListItemIcon>people</mat-icon>

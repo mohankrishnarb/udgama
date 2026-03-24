@@ -8,8 +8,10 @@ import { Todo } from "./todo/todo";
 import { Users } from "./users/users";
 import { Pages } from "./pages";
 import { Settings } from "./settings/settings";
+import { Calendar } from "./calendar/calendar";
 
 export const pages_routes: Routes = [
+    { path: 'calendar', component: Calendar },
     { path: 'dashboard', component: Dashboard },
     { path: 'drive', component: Drive },
     { path: 'kanban', component: Kanban },
