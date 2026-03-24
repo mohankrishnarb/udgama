@@ -1,11 +1,1 @@
-<div class="d-flex" id="udgama-wrapper">
-  <app-menu [isExpanded]="isExpanded()"></app-menu>
-
-  <div id="content-area" [class.collapsed]="!isExpanded()">
-    <app-header (onToggle)="toggleSidebar()"></app-header>
-
-    <main class="p-4">
-      <router-outlet></router-outlet>
-    </main>
-  </div>
-</div>
+<router-outlet></router-outlet>

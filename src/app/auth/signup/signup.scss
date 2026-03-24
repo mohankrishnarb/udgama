@@ -1,0 +1,59 @@
+.signup-wrapper {
+  background-color: #165a50;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  padding: 2.5rem;
+}
+
+::ng-deep .mat-mdc-form-field.mat-focused .mat-mdc-floating-label {
+  color: #165a50 !important;
+}
+
+::ng-deep .mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+::ng-deep .mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+::ng-deep .mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: #165a50 !important;
+  border-width: 2px;
+}
+
+::ng-deep .mat-mdc-form-field .mdc-text-field__input {
+  caret-color: #165a50 !important;
+}
+
+::ng-deep .mat-mdc-form-field .mat-icon {
+  color: #165a50 !important;
+  margin-right: 8px;
+}
+
+::ng-deep .mat-mdc-form-field.mat-focused .mat-icon {
+  color: #165a50 !important;
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+::ng-deep .mat-mdc-form-field-icon-prefix {
+  padding: 0 4px 0 0 !important;
+  display: flex;
+  align-items: center;
+}
+
+button[mat-raised-button] {
+  background-color: #165a50 !important;
+  color: white !important;
+  height: 50px;
+  border-radius: 25px;
+}
+
+a {
+  color: #165a50;
+  font-weight: 600;
+  text-decoration: none;
+}

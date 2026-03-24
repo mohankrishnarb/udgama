@@ -1,1 +1,35 @@
-<p>signup works!</p>
+<div class="signup-wrapper">
+  <div class="card shadow-lg bg-white">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold title-color">Create Account</h2>
+      <p class="text-muted">Join the Udgama Business Suite</p>
+    </div>
+
+    <mat-form-field class="w-100 mb-2" appearance="outline">
+      <mat-label>Full Name</mat-label>
+      <mat-icon matIconPrefix>person</mat-icon>
+      <input matInput placeholder="Ex. John Doe">
+    </mat-form-field>
+
+    <mat-form-field class="w-100 mb-2" appearance="outline">
+      <mat-label>Email Address</mat-label>
+      <mat-icon matIconPrefix>mail</mat-icon>
+      <input matInput type="email" placeholder="john@udgama.com">
+    </mat-form-field>
+
+    <mat-form-field class="w-100 mb-4" appearance="outline">
+      <mat-label>Password</mat-label>
+      <mat-icon matIconPrefix>lock</mat-icon>
+      <input matInput type="password" placeholder="Min. 8 characters">
+    </mat-form-field>
+
+    <button mat-raised-button class="w-100 mb-3 signup-btn" routerLink="/dashboard">
+      Sign Up
+    </button>
+
+    <div class="text-center small">
+      <span class="text-muted">Already have an account?</span>
+      <a routerLink="/login" class="ms-2 sign-in-link">Sign In</a>
+    </div>
+  </div>
+</div>
