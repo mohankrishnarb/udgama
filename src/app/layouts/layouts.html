@@ -1,12 +1,13 @@
 <div class="main-wrapper">
   <div class="d-flex " id="udgama-dashboard-shell">
-  <app-menu [isExpanded]="isExpanded()"></app-menu>
+    <app-menu [isExpanded]="isExpanded()"></app-menu>
 
-  <div id="main-wrapper" [class.content-collapsed]="!isExpanded()">
-    <app-header (onToggle)="toggleSidebar()"></app-header>
-    
-    <div class="container-fluid p-4">
-      <router-outlet></router-outlet> </div>
+    <div id="main-wrapper" [class.content-collapsed]="!isExpanded()">
+      <app-header (onToggle)="toggleSidebar()"></app-header>
+
+      <div class="container-fluid p-4">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   </div>
-</div>
 </div>

@@ -29,20 +29,28 @@
       <mat-icon matListItemIcon>filter_drama</mat-icon>
       <span *ngIf="isExpanded()" class="menu-text">Drive</span>
     </a>
-    
+
     <a mat-list-item routerLink="/calendar" routerLinkActive="active" title="Calendar">
       <mat-icon matListItemIcon>insert_invitation</mat-icon>
       <span *ngIf="isExpanded()" class="menu-text">Calendar</span>
     </a>
-    
+
     <a mat-list-item routerLink="/users" routerLinkActive="active" title="Users">
       <mat-icon matListItemIcon>people</mat-icon>
       <span *ngIf="isExpanded()" class="menu-text">Users</span>
     </a>
-    
+
     <a mat-list-item routerLink="/settings" routerLinkActive="active" title="Settings">
       <mat-icon matListItemIcon>settings</mat-icon>
       <span *ngIf="isExpanded()" class="menu-text">Settings</span>
     </a>
   </mat-nav-list>
+
+  <mat-nav-list class="logout-nav">
+    <a mat-list-item (click)="onLogout()" class="logout-item" title="Logout">
+      <mat-icon matListItemIcon>logout</mat-icon>
+      <span *ngIf="isExpanded()" class="menu-text">Logout</span>
+    </a>
+  </mat-nav-list>
+
 </div>
