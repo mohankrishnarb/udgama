@@ -2,6 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface User {
+  _id: string;
+  fullname: string;
+  email: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -18,7 +24,7 @@ export class UserService {
   }
 
   // READ: Get all users
-  getUsers(): Observable<any[]> {
+  getUsers(): Observable<User[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
 

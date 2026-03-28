@@ -1,18 +1,50 @@
 #udgama-dashboard-shell {
-  display: flex; 
-  width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
 }
 
 #main-wrapper {
-  flex-grow: 1; 
+  flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #f8f9fa; 
-  overflow-x: hidden;
+  height: 100vh;
+  overflow: hidden; 
+  transition: margin-left 0.3s ease;
 }
 
-main {
+.container-fluid.p-4 {
   flex: 1;
-  padding: 20px;
+  overflow-y: auto; 
+  background-color: #f4f7f6;
+
+  /* Custom Scrollbar Mixin for Udgama */
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px; /* Makes it thin */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #165a50; /* Your Udgama Dark Green */
+    border-radius: 10px;
+    
+    &:hover {
+      background: #0e3d36; /* Slightly darker on hover */
+    }
+  }
+
+  /* Support for Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #165a50 #f1f1f1;
+}
+
+/* Apply globally to the whole app if preferred */
+body {
+  @include custom-scrollbar;
+}
 }

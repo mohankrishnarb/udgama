@@ -1,0 +1,76 @@
+.userbg{
+    height: auto;
+}
+
+.header{
+    clear: both;
+    overflow: hidden;
+}
+
+.header h2{
+    float: left;
+    color: #165a50;
+}
+
+.header button{
+    float: right;
+}
+
+.mat-mdc-table {
+    width: 100%;
+    background: white;
+}
+
+.mat-mdc-row:hover {
+    background-color: #f1f5f9;
+    cursor: pointer;
+}
+
+.search-field {
+  width: 100%;
+  margin-bottom: 20px;
+
+  ::ng-deep {
+
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: rgba(22, 90, 80, 1) !important;
+    }
+
+    &.mat-form-field-appearance-outline.mat-focused {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: #165a50 !important;
+        border-width: 2px !important;
+      }
+      
+      .mat-mdc-form-field-label {
+        color: #165a50 !important;
+      }
+    }
+
+    .mat-icon {
+      color: #165a50 !important;
+    }
+
+    .mat-label {
+      color: #165a50 !important;
+    }
+
+    input {
+      caret-color: #165a50 !important;
+    }
+
+    .mat-mdc-form-field-icon-prefix, 
+    .mat-mdc-form-field-icon-suffix {
+      color: #165a50 !important;
+    }
+  }
+}
+
+.adBtn{
+    background-color: #165a50!important;
+    color: #f1f5f9;
+}
