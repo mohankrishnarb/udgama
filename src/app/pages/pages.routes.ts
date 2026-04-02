@@ -9,12 +9,18 @@ import { Users } from "./users/users";
 import { Pages } from "./pages";
 import { Settings } from "./settings/settings";
 import { Calendar } from "./calendar/calendar";
+import { AddKanban } from "./add-kanban/add-kanban";
+import { KanbanBoard } from "./kanban-board/kanban-board";
+import { KanbanCard } from "./kanban-card/kanban-card";
 
 export const pages_routes: Routes = [
+    { path: 'add-kanban', component: AddKanban },
     { path: 'calendar', component: Calendar },
     { path: 'dashboard', component: Dashboard },
     { path: 'drive', component: Drive },
     { path: 'kanban', component: Kanban },
+    { path: 'kanban-board', component: KanbanBoard },
+    { path: 'kanban-card', component: KanbanCard },
     { path: 'notes', component: Notes },
     { path: 'profile', component: Profile },
     { path: 'pages', component: Pages },

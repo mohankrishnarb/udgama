@@ -10,6 +10,7 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 
+
 export interface UserData {
   _id: string;
   fullname: string;
@@ -38,7 +39,7 @@ export class Users {
   users: any[] = [];
   isLoading = true;
 
-  displayedColumns: string[] = ['_id', 'name', 'email'];
+  displayedColumns: string[] = ['_id', 'name', 'email','role' ,'action'];
   dataSource = new MatTableDataSource<User>([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -48,7 +49,6 @@ ngOnInit(): void {
   this.userService.getUsers().subscribe({
     next: (data) => {
       this.users = data;
-      // Update the table's data source here!
       this.dataSource.data = data; 
       this.isLoading = false;
     },

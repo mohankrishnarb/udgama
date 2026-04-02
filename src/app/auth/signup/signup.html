@@ -11,24 +11,28 @@
         <mat-label>Full Name</mat-label>
         <mat-icon matIconPrefix>person</mat-icon>
         <input matInput name="fullname" [(ngModel)]="user.fullname" required>
+        <mat-error>FullName is required*</mat-error>
       </mat-form-field>
 
       <mat-form-field class="w-100 mb-2" appearance="outline">
         <mat-label>Email Address</mat-label>
         <mat-icon matIconPrefix>mail</mat-icon>
         <input matInput name="email" [(ngModel)]="user.email" required>
+        <mat-error>Email-Id is required*</mat-error>
       </mat-form-field>
 
       <mat-form-field class="w-100 mb-2" appearance="outline">
         <mat-label>Password</mat-label>
         <mat-icon matIconPrefix>lock</mat-icon>
         <input matInput name="password" type="password" [(ngModel)]="user.password" required>
+        <mat-error>Password is required*</mat-error>
       </mat-form-field>
 
       <mat-form-field class="w-100 mb-4" appearance="outline">
         <mat-label>Confirm Password</mat-label>
         <mat-icon matIconPrefix>lock_reset</mat-icon>
         <input matInput name="confirmPassword" type="password" [(ngModel)]="confirmPassword" required>
+        <mat-error>Entered Password not matched*</mat-error>
       </mat-form-field>
 
       <button mat-raised-button type="submit" class="w-100" [disabled]="!signupForm.valid || isLoading"

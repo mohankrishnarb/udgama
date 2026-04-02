@@ -7,8 +7,7 @@
     overflow: hidden;
 }
 
-.header h2{
-    float: left;
+.title{
     color: #165a50;
 }
 
@@ -73,4 +72,12 @@
 .adBtn{
     background-color: #165a50!important;
     color: #f1f5f9;
+}
+
+mat-paginator{
+  background-color: #f0f8f7!important;
+}
+
+.table-responsive {
+  overflow-x: auto;
 }
