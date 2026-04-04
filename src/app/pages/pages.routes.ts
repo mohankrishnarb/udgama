@@ -12,6 +12,7 @@ import { Calendar } from "./calendar/calendar";
 import { AddKanban } from "./add-kanban/add-kanban";
 import { KanbanBoard } from "./kanban-board/kanban-board";
 import { KanbanCard } from "./kanban-card/kanban-card";
+import { ViewUser } from "../models/view-user/view-user";
 
 export const pages_routes: Routes = [
     { path: 'add-kanban', component: AddKanban },
@@ -26,5 +27,6 @@ export const pages_routes: Routes = [
     { path: 'pages', component: Pages },
     { path: 'settings', component: Settings },
     { path: 'todo', component: Todo },
-    { path: 'users', component: Users }
+    { path: 'users', component: Users },
+    { path: 'view-user', component: ViewUser }
 ]

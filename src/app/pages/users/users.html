@@ -1,42 +1,55 @@
 <section class="user-wrapper">
     <div class="container-fluid">
-            <div class="row">
-                <div class="userbg bg-white rounded p-4">
-                    <div class="userbg p-4">
-                        <div class="flex justify-end items-center">
-                            <div class="header">
-                                <p class="title font-semibold fs-6">User Management</p>
-                            </div>
+        <div class="row">
+            <div class="userbg bg-white rounded p-4">
+                <div class="userbg p-4">
+                    <div class="flex justify-end items-center">
+                        <div class="header">
+                            <p class="title font-semibold fs-6">User Management</p>
                         </div>
+                    </div>
 
-                        <mat-form-field appearance="outline" class="search-field">
-                            <mat-label>Search users</mat-label>
-                            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. John Doe" #input>
-                            <mat-icon matSuffix>search</mat-icon>
-                        </mat-form-field>
+                    <mat-form-field appearance="outline" class="search-field">
+                        <mat-label>Search users</mat-label>
+                        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. John Doe" #input>
+                        <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>
 
-                        <div class="mat-elevation-z2 rounded-lg table-responsive mb-2">
-                            <table mat-table [dataSource]="dataSource" matSort
-                                class="table table-bordered border-success table-striped table-hover mb-4" >
+                    <div class="mat-elevation-z2 rounded-lg table-responsive mb-2">
+                        <table mat-table [dataSource]="dataSource" matSort
+                            class="table table-bordered border-success table-striped table-hover table-responsive mb-4">
 
-                                <ng-container matColumnDef="_id" sticky>
-                                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-active title"> ID </th>
-                                    <td mat-cell *matCellDef="let row"> {{row._id}} </td>
-                                </ng-container>
+                            <ng-container matColumnDef="_id" sticky>
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-active title"> ID
+                                </th>
+                                <td mat-cell *matCellDef="let row"> {{row._id}} </td>
+                            </ng-container>
 
-                                <ng-container matColumnDef="name">
-                                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-active title"> Name
-                                    </th>
-                                    <td mat-cell *matCellDef="let row"> {{row.fullname}} </td>
-                                </ng-container>
+                            <ng-container matColumnDef="fullname">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-active title"> Name
+                                </th>
+                                <td mat-cell *matCellDef="let row"> {{row.fullname}} </td>
+                            </ng-container>
 
-                                <ng-container matColumnDef="email">
-                                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-active title"> Email
-                                    </th>
-                                    <td mat-cell *matCellDef="let row"> {{row.email}} </td>
-                                </ng-container>
+                            <ng-container matColumnDef="email">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-active title"> Email
+                                </th>
+                                <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+                            </ng-container>
 
-                                <!-- <ng-container matColumnDef="priority">
+                            <ng-container matColumnDef="date">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-active title"> Date </th>
+                                <td mat-cell *matCellDef="let row"> {{ row.createdAt | date:'dd-MM-yyyy, h:mm a' }} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="designation">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-active title">
+                                    Designation
+                                </th>
+                                <td mat-cell *matCellDef="let row"> {{row.designation}} </td>
+                            </ng-container>
+
+                            <!-- <ng-container matColumnDef="priority">
                                     <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-active"> Priority
                                     </th>
                                     <td mat-cell *matCellDef="let row"> </td>
@@ -48,68 +61,147 @@
                                     <td mat-cell *matCellDef="let row"> </td>
                                 </ng-container> -->
 
-                                <ng-container matColumnDef="role">
-                                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-active title"> Role
-                                    </th>
-                                    <td mat-cell *matCellDef="let row"> </td>
-                                </ng-container>
+                            <ng-container matColumnDef="role">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-active title"> Role
+                                </th>
+                                <td mat-cell *matCellDef="let row"> </td>
+                            </ng-container>
 
-                                <ng-container matColumnDef="action">
-                                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-active title"> Action
-                                    </th>
-                                    <td mat-cell *matCellDef="let row">
-                                        <div class="userAction">
-                                            <span>
-                                                <button class="btn btn-sm btn-outline-secondary mx-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-eye-fill uaicon"
-                                                        viewBox="0 0 16 16">
-                                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
-                                                        <path
-                                                            d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
-                                                    </svg>
-                                                </button>
-                                            </span>
-                                            <span>
-                                                <button class="btn btn-sm btn-outline-primary mx-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-pencil-square"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                                        <path fill-rule="evenodd"
-                                                            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
-                                                    </svg>
-                                                </button>
-                                            </span>
-                                            <span>
-                                                <button class="btn btn-sm btn-outline-danger mx-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
-                                                    </svg>
-                                                </button>
-                                            </span>
-                                        </div>
-                                    </td>
-                                </ng-container>
+                            <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-active title"> Action
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                    <div class="userAction">
+                                        <span>
+                                            <button class="btn btn-sm btn-outline-secondary mx-2" data-bs-toggle="modal"
+                                                data-bs-target="#userModal" (click)="selectUser(row)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-eye-fill uaicon"
+                                                    viewBox="0 0 16 16">
+                                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
+                                                    <path
+                                                        d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                                        <span>
+                                            <button class="btn btn-sm btn-outline-primary mx-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                                        <span>
+                                            <button class="btn btn-sm btn-outline-danger mx-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </td>
+                            </ng-container>
 
-                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-                                <tr class="mat-row" *matNoDataRow>
-                                    <td class="mat-cell p-4" colspan="4">No data matching the filter "{{input.value}}"
-                                    </td>
-                                </tr>
-                            </table>
+                            <tr class="mat-row" *matNoDataRow>
+                                <td class="mat-cell p-4" colspan="4">No data matching the filter "{{input.value}}"
+                                </td>
+                            </tr>
+                        </table>
 
-                            <mat-paginator [pageSizeOptions]="[5, 10, 25]"
-                                aria-label="Select page of users"></mat-paginator>
-                        </div>
+                        <mat-paginator [pageSizeOptions]="[5, 10, 25]"
+                            aria-label="Select page of users"></mat-paginator>
                     </div>
-
                 </div>
+
             </div>
+        </div>
     </div>
 </section>
+
+<!-- user model -->
+
+<div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" *ngIf="selectedUser">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 title " id="userModalLabel">User Details: <span class="text-uppercase fs-01">{{selectedUser.fullname}}</span></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    @if (selectedUser) {
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Name</mat-label>
+                                <input matInput [value]="selectedUser.fullname" readonly>
+                                <mat-icon matSuffix>person</mat-icon>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Email</mat-label>
+                                <input matInput [value]="selectedUser.email" readonly>
+                                <mat-icon matSuffix>mail</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        
+
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Mobile</mat-label>
+                                <input matInput [value]="selectedUser.mobile || '1234567890'" readonly>
+                                <mat-icon matSuffix>call</mat-icon>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Designation</mat-label>
+                                <input matInput [value]="selectedUser.designation || 'Developer'" readonly>
+                                <mat-icon matSuffix>calendar_today</mat-icon>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-12">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Address / System ID</mat-label>
+                                <textarea matInput rows="2" readonly>{{ selectedUser._id }}</textarea>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-12">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Note</mat-label>
+                                <textarea matInput rows="3"
+                                    readonly>Detailed notes regarding {{ selectedUser.fullname }}'s account permissions and history go here.</textarea>
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+                    } @else {
+                    <div class="text-center p-5">
+                        <p>No user data available.</p>
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- user model -->

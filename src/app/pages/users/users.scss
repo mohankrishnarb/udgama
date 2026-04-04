@@ -15,6 +15,14 @@
     float: right;
 }
 
+.modal-header{
+  border-bottom: 1px solid #165a50;
+}
+
+.modal-footer{
+  border-top: 1px solid #165a50;
+}
+
 .mat-mdc-table {
     width: 100%;
     background: white;
@@ -81,3 +89,4 @@ mat-paginator{
 .table-responsive {
   overflow-x: auto;
 }
+
