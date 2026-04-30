@@ -14,7 +14,7 @@ export interface User {
 export class UserService {
 
   // Your Node.js backend URL
-  private API_URL = 'https://udgamadb.onrender.com/api/users';
+  private API_URL = 'http://localhost:3000/api/users';
 
   constructor(private http: HttpClient) { }
 

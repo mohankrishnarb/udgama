@@ -1,17 +1,20 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule,DatePipe } from '@angular/common';
+import { Component,OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormGroup, NonNullableFormBuilder, Form, FormBuilder } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-kanban-card',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, MatIconModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, MatIconModule,
+            DatePipe
+  ],
   templateUrl: './kanban-card.html',
   styleUrl: './kanban-card.scss',
 })
 export class KanbanCard {
 
   kanbanCardForm: FormGroup;
+   now: Date = new Date();
 
   constructor(private fb: FormBuilder) {
     this.kanbanCardForm = this.fb.group({
@@ -31,6 +34,12 @@ export class KanbanCard {
       return '?';
     }
     return name.charAt(0).toUpperCase();
+  }
+
+  ngOnInit() {
+    setInterval(() => {
+      this.now = new Date();
+    }, 1000);
   }
 
 }

@@ -1,1 +1,38 @@
-<p>kanban-card works!</p>
+<section class="kanbanCard">
+    <div class="card p-2">
+        <div class="cardHeader d-flex align-items-center justify-content-between">
+            <div class="card-title col-md-06">
+                <p class="fs-06 text-capitalize mb-0">card title</p>
+            </div>
+            <div class="card-edit col-md-06">
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-outline-grey text-dark " type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                            <path
+                                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-capitalize fs-6 fw-medium">edit</a></li>
+                        <hr class="mb-1 mt-1">
+                        <li><a class="dropdown-item text-capitalize fs-6 fw-medium">delete</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="cardBody my-2">
+            <p>Arrange web meeting with customer to get editing requirements</p>
+        </div>
+        <div class="cardFooter my-2">
+            <div class="cardFooterHeader d-flex align-items-center">
+                <mat-icon class="fs-5 me-2">calendar_today</mat-icon>
+                <span class="fs-6">
+                    Deadline: {{ now | date:'MMM d, y' }}&nbsp;&nbsp;|&nbsp;&nbsp;<span class="text-uppercase fs-6">high</span>
+                </span>
+            </div>
+            <div class="cardFooterBody my-2"></div>
+        </div>
+    </div>
+</section>

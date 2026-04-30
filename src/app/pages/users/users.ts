@@ -18,12 +18,6 @@ export interface UserData {
   email: string;
 }
 
-const ELEMENT_DATA: UserData[] = [
-  {_id: '1', fullname: 'John Doe', email: 'john@udgama.com'},
-  {_id: '2', fullname: 'Jane Smith', email: 'jane@example.com'},
-  // Add more mock data here
-];
-
 @Component({
   selector: 'app-users',
   imports: [CommonModule,MatButtonModule,MatIconModule, 

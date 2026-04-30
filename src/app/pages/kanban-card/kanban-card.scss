@@ -1,0 +1,27 @@
+.card{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.card-title p{
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.btn-outline-grey:hover{
+    border: 1px solid #6c757d;
+    cursor: pointer;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #165a50 !important;
+    color: #ffffff; 
+}
+
+.dropdown-item:hover{
+    cursor: pointer;
+}
+
+.card-header{
+    border-bottom: 0;
+}

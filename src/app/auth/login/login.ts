@@ -35,13 +35,14 @@ export class Login {
     this.userService.login(this.loginForm.value).subscribe({
       next: (res) => {
         this.isLoading = false;
-        // Save user info or token
         localStorage.setItem('token', 'udgama_token'); 
         this.router.navigate(['/dashboard']);
       },
       error: (err) => {
         this.isLoading = false;
         alert(err.error.message || 'Login failed');
+        console.log(err||'message');
+        
       }
     });
     console.log(this.loginForm.value);    
